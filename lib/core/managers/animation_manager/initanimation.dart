@@ -5,6 +5,5 @@ class InitAnimation {
 
   factory InitAnimation() => InitAnimation._internal();
 
-  initializeAnimation(){
-  }
+  initializeAnimation() {}
 }
