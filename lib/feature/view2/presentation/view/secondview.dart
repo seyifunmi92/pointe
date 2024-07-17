@@ -19,7 +19,33 @@ class SecondView extends StatefulWidget {
   State<SecondView> createState() => _SecondViewState();
 }
 
-class _SecondViewState extends State<SecondView> {
+class _SecondViewState extends State<SecondView> with TickerProviderStateMixin {
+  @override
+  void initState() {
+    Managers.animations.initializeAnimation3(vsync: this);
+    Managers.animationdata.updateAllData3(() {
+      setState(() {});
+    });
+
+    ///run second animation
+    Future.delayed(
+      Duration(seconds: 5),
+      () {
+        Managers.animationsImpl.icontroller3.dispose();
+        Managers.animations.initializeAnimation3(vsync: this);
+        Managers.animationdata.updateData3again(() {
+          setState(() {});
+        });
+      },
+    );
+
+    Future.delayed(Duration(seconds: 7), () {
+      Managers.utils.showAppDialog(context, child: const CosyAreaDialog());
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -48,50 +74,56 @@ class _SecondViewState extends State<SecondView> {
 
               60.h.spaceH,
 
-              const OrangeTag(
+              OrangeTag(
                 timeInmins: "10.3",
+                containerwidth: Managers.animationdata.oContainer1.value,
               ),
 
               10.h.spaceH,
 
-              const OrangeTag(
+              OrangeTag(
                 width: 120,
                 timeInmins: "11",
+                containerwidth: Managers.animationdata.oContainer1.value,
               ),
 
-              const OrangeTag(
+              OrangeTag(
                 width: 190,
                 timeInmins: "11",
+                containerwidth: Managers.animationdata.oContainer1.value,
               ),
 
               30.h.spaceH,
 
-              const OrangeTag(
+              OrangeTag(
                 width: 20,
                 timeInmins: "11",
+                containerwidth: Managers.animationdata.oContainer1.value,
               ),
               30.h.spaceH,
 
-              const OrangeTag(
+              OrangeTag(
                 width: 200,
                 timeInmins: "11",
+                containerwidth: Managers.animationdata.oContainer1.value,
               ),
 
               30.h.spaceH,
 
-              const OrangeTag(
+              OrangeTag(
                 width: 150,
                 timeInmins: "11",
+                containerwidth: Managers.animationdata.oContainer1.value,
               ),
 
-              60.h.spaceH,
+              40.h.spaceH,
 
               Pad(
                 width: 20.w,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    InkWell(onTap: () => Managers.utils.showAppDialog(context, child: const CosyAreaDialog()), child: const LocationAvatar()),
+                    LocationAvatar(),
                     VariantsContainer(),
                   ],
                 ),

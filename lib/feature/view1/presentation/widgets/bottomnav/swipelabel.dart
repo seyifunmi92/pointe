@@ -9,7 +9,9 @@ class SwipeOnImage extends StatelessWidget {
   final String? label;
   final double? width;
   final int? height;
-  const SwipeOnImage({super.key, this.label, this.width, this.height});
+  final double? fontSize;
+  final double? radius;
+  const SwipeOnImage({super.key, this.label, this.width, this.height, this.fontSize, this.radius});
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +30,12 @@ class SwipeOnImage extends StatelessWidget {
                 IText(
                   value: label ?? "",
                   fontFamily: IFonts.nunito,
-                  fontSize: 10.f,
+                  fontSize: fontSize,
                   fontWeight: FontWeight.w500,
                   fontColor: ColorHelper.black,
                 ),
                 CircleAvatar(
-                  radius: 25,
+                  radius: radius,
                   backgroundColor: context.container,
                   child: Icon(
                     Icons.arrow_forward_ios_outlined,

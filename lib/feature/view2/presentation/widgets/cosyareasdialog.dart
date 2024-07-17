@@ -11,7 +11,7 @@ class CosyAreaDialog extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: context.getHeight() - 390.h,
+          height: context.getHeight() - 410.h,
         ),
         Row(
           children: [

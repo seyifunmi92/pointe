@@ -5,7 +5,6 @@ import 'package:moniepointmobile/core/managers/thememanager/colors/colorhelpers.
 import 'package:moniepointmobile/core/common/widgets/reuseables/padding/padding.dart';
 import 'package:moniepointmobile/feature/view1/presentation/widgets/body/appbar.dart';
 import 'package:moniepointmobile/core/managers/singleton_managers.dart/singletons.dart';
-import 'package:moniepointmobile/core/common/widgets/animatedwidgets/animatedbuilder.dart';
 import 'package:moniepointmobile/core/common/widgets/animatedwidgets/slidetransition.dart';
 import 'package:moniepointmobile/core/common/widgets/reuseables/customtext/customtext.dart';
 import 'package:moniepointmobile/feature/view1/presentation/widgets/body/body_scaffold.dart';
@@ -25,9 +24,15 @@ class InitView extends StatefulWidget {
 class _InitViewState extends State<InitView> with SingleTickerProviderStateMixin {
   @override
   void initState() {
+    Managers.navlogic.disposevariables();
     Managers.animationsImpl.initializeAnimation(vsync: this);
     Managers.animationdata.updateAllData(() {
       setState(() {});
+    });
+
+    ///launch image dialog
+    Future.delayed(const Duration(seconds: 4), () {
+      Managers.utils.showCupertino(context, child: const BNav());
     });
 
     super.initState();
@@ -35,7 +40,7 @@ class _InitViewState extends State<InitView> with SingleTickerProviderStateMixin
 
   @override
   void dispose() {
-    // Managers.animationsImpl.icontroller.dispose();
+    Managers.animationsImpl.icontroller.dispose();
     super.dispose();
   }
 
@@ -145,7 +150,7 @@ class _InitViewState extends State<InitView> with SingleTickerProviderStateMixin
                             ),
                             0.h.spaceH,
                             InkWell(
-                              onTap: () => Managers.utils.showCupertino(context, child: const BNav()),
+                              onTap: () => print(context.getWidth() - 330.w / 2),
                               child: IText(
                                 value: "Offers",
                                 fontColor: context.textsecondary.withOpacity(.8),

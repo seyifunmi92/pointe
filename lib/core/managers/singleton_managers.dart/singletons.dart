@@ -4,6 +4,7 @@ import 'package:moniepointmobile/core/utils/apputils/utils.dart';
 import 'package:moniepointmobile/core/managers/routemanager/routes.dart';
 import 'package:moniepointmobile/core/managers/image_manager/images.dart';
 import 'package:moniepointmobile/core/common/animations/animationdata.dart';
+import 'package:moniepointmobile/feature/view1/domain/logic/nav_logic.dart';
 import 'package:moniepointmobile/core/common/animations/animationclass.dart';
 import 'package:moniepointmobile/core/managers/routemanager/namedroutes.dart';
 import 'package:moniepointmobile/core/common/animations/animationrepository.dart';
@@ -27,4 +28,5 @@ class Managers {
   static AnimationRepo animationrepo = getIt<AnimationRepo>();
   static AnimationRepository animationrepository = getIt<AnimationRepository>();
   static Animationdata animationdata = getIt<Animationdata>();
+  static NavigatorLogic navlogic = getIt<NavigatorLogic>();
 }

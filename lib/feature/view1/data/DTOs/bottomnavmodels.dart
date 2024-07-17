@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class BottomNavItems {
   IconData? icon;
-  void Function()? onClickItem;
+  int? pageIndex;
   String? item;
 
-  BottomNavItems({this.icon, this.onClickItem, this.item});
+  BottomNavItems({this.icon, this.pageIndex, this.item});
 }

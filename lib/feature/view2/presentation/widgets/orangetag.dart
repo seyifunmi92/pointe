@@ -6,7 +6,10 @@ import 'package:moniepointmobile/core/common/widgets/reuseables/customtext/custo
 class OrangeTag extends StatelessWidget {
   final String? timeInmins;
   final int? width;
-  const OrangeTag({super.key, this.timeInmins, this.width = 100});
+
+  final double? containerwidth;
+
+  const OrangeTag({super.key, this.timeInmins, this.width = 100, this.containerwidth});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class OrangeTag extends StatelessWidget {
         width!.w.spaceW,
         Container(
           height: 47.h,
-          width: 70.w,
+          width: containerwidth,
           decoration: const BoxDecoration(
               color: Colors.orange,
               borderRadius: BorderRadius.only(
@@ -27,7 +30,7 @@ class OrangeTag extends StatelessWidget {
             child: IText(
               value: "$timeInmins mn P",
               fontColor: ColorHelper.white,
-              fontSize: 12.f,
+              fontSize: 10.f,
             ),
           ),
         ),

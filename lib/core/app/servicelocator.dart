@@ -3,6 +3,7 @@ import '../managers/routemanager/routes.dart';
 import 'package:moniepointmobile/core/app/app.dart';
 import 'package:moniepointmobile/core/utils/apputils/utils.dart';
 import 'package:moniepointmobile/core/managers/image_manager/images.dart';
+import 'package:moniepointmobile/feature/view1/domain/logic/nav_logic.dart';
 import 'package:moniepointmobile/core/common/animations/animationdata.dart';
 import 'package:moniepointmobile/core/common/animations/animationclass.dart';
 import 'package:moniepointmobile/core/managers/routemanager/namedroutes.dart';
@@ -45,5 +46,9 @@ void initiateServiceLocator() {
     ..registerSingleton<AnimationsImpl>(AnimationsImpl.instance)
     ..registerSingleton<AnimationRepo>(AnimationRepository.instance)
     ..registerSingleton<AnimationRepository>(AnimationRepository.instance)
-    ..registerSingleton<Animationdata>(Animationdata.instance);
+    ..registerSingleton<Animationdata>(Animationdata.instance)
+
+
+    ///logic
+    ..registerSingleton<NavigatorLogic>(NavigatorLogic.instance);
 }

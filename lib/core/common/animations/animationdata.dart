@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/widgets.dart';
 import 'package:moniepointmobile/core/managers/singleton_managers.dart/singletons.dart';
 
@@ -69,6 +70,56 @@ class Animationdata {
 
   get whiteCircleCounter => _whiteCircleCounter;
 
+  Animation<double>? _imageslide1;
+
+  get imageslide1 => _imageslide1;
+
+  Animation<double>? _imageslideText1;
+
+  get imageslideText1 => _imageslideText1;
+
+  Animation<double>? _imageslide2;
+
+  get imageslide2 => _imageslide2;
+
+  Animation<double>? _imageslide3;
+
+  Animation<double>? _labelRadius;
+
+  get labelRadius => _labelRadius;
+
+  get imageslide3 => _imageslide3;
+
+  Animation<Offset>? _bottomnavoffset;
+
+  get bottomnavoffset => _bottomnavoffset;
+
+  ///orange containers
+
+  Animation<double>? _oContainer1;
+
+  get oContainer1 => _oContainer1;
+
+  Animation<double>? _oContainer2;
+
+  get oContainer2 => _oContainer2;
+
+  Animation<double>? _oContainer3;
+
+  get oContainer3 => _oContainer3;
+
+  Animation<double>? _oContainer4;
+
+  get oContainer4 => _oContainer4;
+
+  Animation<double>? _oContainer5;
+
+  get oContainer5 => _oContainer5;
+
+  Animation<double>? _oContainer6;
+
+  get oContainer6 => _oContainer6;
+
   ///update all data
   updateAllData(void Function()? fn) async {
     _spContainerWidth = await Managers.animationrepo.getSPwidth(fn);
@@ -104,5 +155,33 @@ class Animationdata {
     _orangeCircleCounter = await Managers.animationrepo.getOrangeAnimatedCount(fn);
 
     _whiteCircleCounter = await Managers.animationrepo.getWhiteAnimatedCount(fn);
+  }
+
+  updateAllData2(void Function()? fn) async {
+    _imageslide1 = await Managers.animationrepo.getImage1labelsize(fn);
+
+    _imageslideText1 = await Managers.animationrepo.getImageSizeText1(fn);
+
+    _imageslide2 = await Managers.animationrepo.getImage2labelsize(fn);
+
+    _imageslide3 = await Managers.animationrepo.getImage3labelsize(fn);
+
+    _bottomnavoffset = await Managers.animationrepo.getBottomNavOffset();
+
+    _labelRadius = await Managers.animationrepo.getLabelRadius(fn);
+
+    _oContainer1 = await Managers.animationrepo.getOC1(fn);
+  }
+
+  updateAllData3(void Function()? fn) async {
+    _oContainer1 = await Managers.animationrepo.getOC1(fn);
+  }
+
+  ///updateData after few seconds\
+  updateData3again(void Function()? fn)async{
+
+  _oContainer1 = await Managers.animationrepository.getOC2(fn);
+  
+  
   }
 }
